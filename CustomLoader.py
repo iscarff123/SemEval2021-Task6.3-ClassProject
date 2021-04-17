@@ -43,9 +43,11 @@ class MultiModalLoader(Dataset):
         
         hate = torch.from_numpy(np.asarray(self.annotations.iloc[index, 2]))
         
-        y_label = torch.from_numpy(np.asarray(self.annotations.iloc[index,3]))
+        sent = torch.from_numpy(np.asarray(self.annotations.iloc[index, 2]))
+        
+        y_label = torch.from_numpy(np.asarray(self.annotations.iloc[index,4]))
         
         if self.transform:
             image = self.transform(image)
         
-        return image, text, hate, y_label
+        return image, text, hate, sent, y_label
