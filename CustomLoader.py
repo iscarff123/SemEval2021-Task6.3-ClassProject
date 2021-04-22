@@ -39,7 +39,7 @@ class MultiModalLoader(Dataset):
         img_path = os.path.join(self.root_dir, self.annotations.iloc[index, 0])
         image = io.imread(img_path)
         
-        text = self.annotations.iloc[index,1]        
+        text = self.annotations.iloc[index,1]
         
         hate = torch.from_numpy(np.asarray(self.annotations.iloc[index, 2]))
         
@@ -49,5 +49,6 @@ class MultiModalLoader(Dataset):
         
         if self.transform:
             image = self.transform(image)
+            
         
         return image, text, hate, sent, y_label
