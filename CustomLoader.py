@@ -41,9 +41,9 @@ class MultiModalLoader(Dataset):
         
         text = self.annotations.iloc[index,1]
         
-        hate = torch.from_numpy(np.asarray(self.annotations.iloc[index, 2]))
+        hate = torch.tensor((self.annotations.iloc[index, 2]))
         
-        sent = torch.from_numpy(np.asarray(self.annotations.iloc[index, 2]))
+        sent = torch.tensor((self.annotations.iloc[index, 3]))
         
         y_label = torch.from_numpy(np.asarray(self.annotations.iloc[index,4]))
         
